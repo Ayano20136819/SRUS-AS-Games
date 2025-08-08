@@ -8,7 +8,7 @@
 #
 # -------------------------------
 
-class Player():
+class Player:
     def __init__(self, _uid:str, _name:str):
         self.uid =_uid
         self.name =_name
@@ -20,4 +20,4 @@ class Player():
         return self.name
 
     def __str__(self):
-        return f"ID[ {self.uid}]: {self.name}"
+        return f"ID[{self.uid}]: {self.name}"
