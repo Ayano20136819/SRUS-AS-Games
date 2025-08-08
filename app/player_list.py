@@ -31,7 +31,7 @@ class PlayerList:
         while current.next is not None:
             current = current.next
         self.tail = current
-        print(self.tail.player.name)
+        print(f"Tail is {self.tail.player.name}")
         return self.tail
 
 
@@ -48,6 +48,26 @@ class PlayerList:
             new_node.next = self.head
             self.head = new_node
 
+    #TODO Add a method to insert an item at the tail of the linked list
+    # You need to consider (again) that your list
+    # may or may not be empty at this point.
+
+    """insert an item at the tail of the list"""
+    def insert_tail(self, uid, name):
+        new_player = Player(uid, name)
+        new_node = PlayerNode(new_player)
+
+        current_tail = self.find_tail()
+        if self.is_empty():
+            self.head = new_node
+            self.tail = new_node
+        else:
+            current_tail.next = new_node
+            new_node.prev = current_tail
+            self.tail = new_node
+
+
+
 
 
     def display(self):
@@ -59,11 +79,11 @@ class PlayerList:
         print(players)
 
 
-list = PlayerList()
-list.insert(1, "test1")
-list.insert(2, "test2")
-list.display()
-list.find_tail()
-list.display()
+# list = PlayerList()
+# list.insert(1, "test1")
+# list.insert(2, "test2")
+# list.display()
+# list.find_tail()
+# list.display()
 
 

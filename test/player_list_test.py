@@ -29,6 +29,17 @@ class TestPlayerList(TestCase):
         self.assertEqual(test_list1.head.player.uid, "3")
         self.assertEqual(tail.player.uid, "1")
 
+    # TODO insert as item at the tail
+    def test_insert_tail(self):
+        test_list1 = PlayerList()
+        test_list1.insert_tail("1", "Test1")
+        test_list1.insert_tail("2", "Test2")
+        test_list1.insert_tail("3", "Test3")
+        self.assertEqual(test_list1.tail.player.uid, "3")
+
+
+
+
 
 
 

@@ -33,12 +33,12 @@ class PlayerNode:
         self._next = next_info
 
     @property
-    def pre(self):
-        return self._pre
+    def prev(self):
+        return self._prev
 
-    @pre.setter
-    def pre(self, pre_info):
-        self._pre = pre_info
+    @prev.setter
+    def prev(self, prev_info):
+        self._prev = prev_info
 
     def key(self):
         return self.player.uid
@@ -49,7 +49,7 @@ class PlayerNode:
 
 
 
-player = Player("2","Test")
-print(player)
-node = PlayerNode(player)
-print(node)
+# player = Player("2","Test")
+# print(player)
+# node = PlayerNode(player)
+# print(node)
