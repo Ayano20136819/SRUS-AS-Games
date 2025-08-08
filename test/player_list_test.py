@@ -37,7 +37,62 @@ class TestPlayerList(TestCase):
         test_list1.insert_tail("3", "Test3")
         self.assertEqual(test_list1.tail.player.uid, "3")
 
+    def test_insert_tail_empty(self):
+        test_list1 = PlayerList()
+        test_list1.insert_tail("1", "Test1")
+        self.assertEqual(test_list1.head.player.uid, "1")
+        self.assertEqual(test_list1.tail.player.uid, "1")
 
+
+    # TODO delete an item from the head of the list
+    def test_delete_head(self):
+        test_list1 = PlayerList()
+        test_list1.insert_tail("1", "Test1")
+        test_list1.insert_tail("2", "Test2")
+        test_list1.delete_head()
+        self.assertEqual(test_list1.head.player.uid, "2")
+
+    # TODO delete an item from the tail of a list
+    def test_delete_tail(self):
+        test_list1 = PlayerList()
+        test_list1.insert_tail("1", "Test1")
+        test_list1.insert_tail("2", "Test2")
+        test_list1.insert_tail("3", "Test3")
+        test_list1.delete_tail()
+        self.assertEqual(test_list1.tail.player.uid, "2")
+
+    def test_delete_tail_one_item(self):
+        test_list1 = PlayerList()
+        test_list1.insert_tail("1", "Test1")
+        test_list1.delete_tail()
+        self.assertIsNone(test_list1.head)
+        self.assertIsNone(test_list1.tail)
+
+    # TODO delete an item from the linked list based on its key
+    def test_delete_key(self):
+        test_list1 = PlayerList()
+        test_list1.insert_tail("1", "Test1")
+        test_list1.insert_tail("2", "Test2")
+        test_list1.insert_tail("3", "Test3")
+        test_list1.delete_key("2")
+        # test_list1.display()
+        self.assertEqual(test_list1.head.next.player.uid, "3")
+
+    def test_delete_key_head(self):
+        test_list1 = PlayerList()
+        test_list1.insert_tail("1", "Test1")
+        test_list1.insert_tail("2", "Test2")
+        test_list1.insert_tail("3", "Test3")
+        test_list1.delete_key("1")
+        self.assertEqual(test_list1.head.player.uid, "2")
+
+    def test_delete_key_tail(self):
+        test_list1 = PlayerList()
+        test_list1.insert_tail("1", "Test1")
+        test_list1.insert_tail("2", "Test2")
+        test_list1.insert_tail("3", "Test3")
+        test_list1.delete_key("3")
+        self.assertEqual(test_list1.tail.player.uid, "2")
 
 
 
