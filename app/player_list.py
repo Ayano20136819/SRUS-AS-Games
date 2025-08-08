@@ -16,11 +16,25 @@ class PlayerList:
         self.head = None
         self.tail = None
 
+
     """Return true when the list is empty"""
     def is_empty(self):
         if self.head is None:
             return True
         return False
+
+    """find tail from the list"""
+    def find_tail(self):
+        if not self.head:
+            return None
+        current = self.head
+        while current.next is not None:
+            current = current.next
+        self.tail = current
+        print(self.tail.player.name)
+        return self.tail
+
+
 
     """insert a new node at the head of the list"""
     def insert(self, uid, name):
@@ -47,6 +61,9 @@ class PlayerList:
 
 list = PlayerList()
 list.insert(1, "test1")
+list.insert(2, "test2")
+list.display()
+list.find_tail()
 list.display()
 
 

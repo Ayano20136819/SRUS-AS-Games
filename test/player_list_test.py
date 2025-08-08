@@ -25,7 +25,9 @@ class TestPlayerList(TestCase):
         test_list1.insert("1", "Test1")
         test_list1.insert("2", "Test2")
         test_list1.insert("3", "Test3")
+        tail = test_list1.find_tail()
         self.assertEqual(test_list1.head.player.uid, "3")
+        self.assertEqual(tail.player.uid, "1")
 
 
 
