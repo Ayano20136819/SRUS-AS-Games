@@ -8,13 +8,13 @@
 #
 # -------------------------------
 
-from player import Player
+from app.player import Player
 
 class PlayerNode:
-    def __init__(self, _player: Player, _next = None, _pre = None):
-        self._player = _player
-        self._next = _next
-        self._pre = _pre
+    def __init__(self, _player: Player, _next = None, _prev = None):
+        self.player = _player
+        self.next = _next
+        self.prev = _prev
 
     @property
     def player(self):
@@ -28,17 +28,24 @@ class PlayerNode:
     def next(self):
         return self._next
 
+    @next.setter
+    def next(self, next_info):
+        self._next = next_info
+
     @property
     def pre(self):
         return self._pre
+
+    @pre.setter
+    def pre(self, pre_info):
+        self._pre = pre_info
 
     def key(self):
         return self.player.uid
 
     def __str__(self):
         return (f"Player Name: {self._player.name}, NextNode: {self.next}, PreviousNode:"
-                f" {self.pre}")
-
+                f" {self.prev}")
 
 
 
