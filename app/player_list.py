@@ -123,13 +123,22 @@ class PlayerList:
             current.next.prev = current.prev
 
 
-    def display(self):
+    """display list from head to tail (forward=True), 
+       from tail to head (forward=False)"""
+    def display(self, forward=True):
         players = []
-        current = self.head
-        while current:
-            players.append(current.player.info)
-            current = current.next
-        print(players)
+        if forward:
+            current = self.head
+            while current:
+                players.append(current.player.info)
+                current = current.next
+            print(players)
+        else:
+            current = self.tail
+            while current:
+                players.append(current.player.info)
+                current = current.prev
+            print(players)
 
 
 # list = PlayerList()

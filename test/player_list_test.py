@@ -94,6 +94,17 @@ class TestPlayerList(TestCase):
         test_list1.delete_key("3")
         self.assertEqual(test_list1.tail.player.uid, "2")
 
+    # display list forward
+    def test_display_forward(self):
+        test_list1 = PlayerList()
+        test_list1.insert_tail("1", "Test1")
+        test_list1.insert_tail("2", "Test2")
+        test_list1.insert_tail("3", "Test3")
+        test_list1.display(True)
+        self.assertEqual(test_list1.head.player.uid, "1")
+
+
+
 
 
 
