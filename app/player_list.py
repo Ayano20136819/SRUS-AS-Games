@@ -31,7 +31,7 @@ class PlayerList:
         while current.next is not None:
             current = current.next
         self.tail = current
-        print(f"Tail is {self.tail.player.name}")
+        #print(f"Tail is {self.tail.player.name}")
         return self.tail
 
 
@@ -48,10 +48,6 @@ class PlayerList:
             new_node.next = self.head
             self.head = new_node
 
-    #TODO Add a method to insert an item at the tail of the linked list
-    # You need to consider (again) that your list
-    # may or may not be empty at this point.
-
     """insert an item at the tail of the list"""
     def insert_tail(self, uid, name):
         new_player = Player(uid, name)
@@ -66,10 +62,7 @@ class PlayerList:
             new_node.prev = current_tail
             self.tail = new_node
 
-
-    # TODO delete an item from the head of the list
     """delete a node from the head of the list"""
-
     def delete_head(self):
         if self.is_empty():
             return
@@ -77,7 +70,7 @@ class PlayerList:
         current_head.pre = None
         self.head = current_head.next
 
-    # TODO delete an item from the tail of a list
+    """delete an item from the tail of a list"""
     def delete_tail(self):
         if self.is_empty():
             return
@@ -91,12 +84,14 @@ class PlayerList:
         current_tail.next = None
         self.tail = current_tail.prev
 
-    # TODO delete an item from the linked list based on its key
+    """delete an item from the linked list based on its key
+        (key = uid)   
+    """
     def delete_key(self, key):
-        current = self.head
-
         if self.is_empty():
             return
+
+        current = self.head
 
         # search for node to delete
         while current is not None and current.player.uid != key:
@@ -141,11 +136,6 @@ class PlayerList:
             print(players)
 
 
-# list = PlayerList()
-# list.insert(1, "test1")
-# list.insert(2, "test2")
-# list.display()
-# list.find_tail()
-# list.display()
+
 
 

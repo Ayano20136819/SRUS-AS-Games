@@ -49,7 +49,3 @@ class PlayerNode:
 
 
 
-# player = Player("2","Test")
-# print(player)
-# node = PlayerNode(player)
-# print(node)

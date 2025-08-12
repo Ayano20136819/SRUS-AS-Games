@@ -29,7 +29,7 @@ class TestPlayerList(TestCase):
         self.assertEqual(test_list1.head.player.uid, "3")
         self.assertEqual(tail.player.uid, "1")
 
-    # TODO insert as item at the tail
+    """insert as item at the tail"""
     def test_insert_tail(self):
         test_list1 = PlayerList()
         test_list1.insert_tail("1", "Test1")
@@ -44,7 +44,7 @@ class TestPlayerList(TestCase):
         self.assertEqual(test_list1.tail.player.uid, "1")
 
 
-    # TODO delete an item from the head of the list
+    """delete an item from the head of the list"""
     def test_delete_head(self):
         test_list1 = PlayerList()
         test_list1.insert_tail("1", "Test1")
@@ -52,7 +52,7 @@ class TestPlayerList(TestCase):
         test_list1.delete_head()
         self.assertEqual(test_list1.head.player.uid, "2")
 
-    # TODO delete an item from the tail of a list
+    """delete an item from the tail of a list"""
     def test_delete_tail(self):
         test_list1 = PlayerList()
         test_list1.insert_tail("1", "Test1")
@@ -68,7 +68,7 @@ class TestPlayerList(TestCase):
         self.assertIsNone(test_list1.head)
         self.assertIsNone(test_list1.tail)
 
-    # TODO delete an item from the linked list based on its key
+    """delete an item from the linked list based on its key"""
     def test_delete_key(self):
         test_list1 = PlayerList()
         test_list1.insert_tail("1", "Test1")

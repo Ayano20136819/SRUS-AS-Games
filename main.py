@@ -1,16 +1,26 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from app.player import Player
+from app.player_node import PlayerNode
+from app.player_list import PlayerList
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+player = Player("2","Test")
+print(f"Player info: {player}")
+node = PlayerNode(player)
+print(f"Node info: {node}")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(node.key())
+
+list = PlayerList()
+list.insert_tail(1, "test1")
+list.insert_tail(2, "test2")
+list.insert_tail(3, "test3")
+
+
+
+list.find_tail()
+
+print("List forward:")
+list.display(True)
+
+print("List backward:")
+list.display(False)
