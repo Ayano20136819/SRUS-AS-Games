@@ -97,6 +97,7 @@ class PlayerList:
         while current is not None and current.player.uid != key:
             current = current.next
 
+
         if current is None:
             return
 

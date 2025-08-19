@@ -41,7 +41,7 @@ class PlayerNode:
         self._prev = prev_info
 
     def key(self):
-        return self.player.uid
+        return str(self.player.uid)
 
     def __str__(self):
         return (f"Player Name: {self._player.name}, NextNode: {self.next}, PreviousNode:"
