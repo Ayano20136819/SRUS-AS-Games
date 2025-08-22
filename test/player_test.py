@@ -11,6 +11,7 @@
 from app.player import Player
 from unittest import TestCase
 
+
 class TestPlayer(TestCase):
 
     def test_player_uid(self):

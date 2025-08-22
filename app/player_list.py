@@ -55,20 +55,23 @@ class PlayerList:
         """delete a node from the head of the list"""
         if self.is_empty():
             return
-        current_head = self.head
-        current_head.prev = None
-        self.head = current_head.next
+        next_head = self.head.next
+        self.head = next_head
+        if next_head:
+            next_head.prev = None
+        else:
+            self.tail = None
 
     def delete_tail(self):
         """delete an item from the tail of a list"""
         if self.is_empty():
             return
-        if self.head == self.tail:
-            self.head = None
-            self.tail = None
+        next_tail = self.tail.prev
+        self.tail = next_tail
+        if next_tail:
+            next_tail.next = None
         else:
-            self.tail = self.tail.prev
-            self.tail.next = None
+            self.head = None
 
 
 
@@ -109,18 +112,19 @@ class PlayerList:
     def display(self, forward=True):
         """display list from head to tail (forward=True),
                from tail to head (forward=False)"""
-        players = []
         if forward:
             current = self.head
             while current:
-                players.append(current.player.info)
+                print(current.player.info, end=", ")
                 current = current.next
         else:
             current = self.tail
             while current:
-                players.append(current.player.info)
+                print(current.player.info, end=", ")
                 current = current.prev
-        print(players)
+
+
+
 
 
 
