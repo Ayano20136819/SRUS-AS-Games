@@ -11,10 +11,10 @@
 from app.player import Player
 
 class PlayerNode:
-    def __init__(self, _player: Player, _next = None, _prev = None):
-        self.player = _player
-        self.next = _next
-        self.prev = _prev
+    def __init__(self, player: Player, next = None, prev = None):
+        self._player = player
+        self._next = next
+        self._prev = prev
 
     @property
     def player(self):

@@ -115,13 +115,12 @@ class PlayerList:
             while current:
                 players.append(current.player.info)
                 current = current.next
-            print(players)
         else:
             current = self.tail
             while current:
                 players.append(current.player.info)
                 current = current.prev
-            print(players)
+        print(players)
 
 
 

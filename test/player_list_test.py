@@ -25,9 +25,8 @@ class TestPlayerList(TestCase):
         test_list1.insert("1", "Test1")
         test_list1.insert("2", "Test2")
         test_list1.insert("3", "Test3")
-        tail = test_list1.find_tail()
         self.assertEqual(test_list1.head.player.uid, "3")
-        self.assertEqual(tail.player.uid, "1")
+        self.assertEqual(test_list1.tail.player.uid, "1")
 
     """insert as item at the tail"""
     def test_insert_tail(self):
