@@ -11,6 +11,7 @@
 from app.player import Player
 from app.player_node import PlayerNode
 
+
 class PlayerList:
     def __init__(self):
         self.head = None
@@ -61,6 +62,10 @@ class PlayerList:
             current_tail.next = new_node
             new_node.prev = current_tail
             self.tail = new_node
+
+
+
+
 
     """delete a node from the head of the list"""
     def delete_head(self):
@@ -135,6 +140,40 @@ class PlayerList:
                 players.append(current.player.info)
                 current = current.prev
             print(players)
+
+    """find node by index"""
+    def find_key(self, key: Player):
+        current_node = self.head
+        while current_node:
+            print(f"CHECK existing node= {current_node.player}, search node={key}")
+            if current_node.player:
+                return current_node
+            current_node = current_node.next
+        return None
+
+    def update_player(self, player: Player):
+        new_node = PlayerNode(player)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            new_node.prev = self.tail
+            self.tail = new_node
+
+
+
+
+    def __str__(self):
+        if self.tail:
+            return f" {self.tail.player.name}"
+        return " "
+
+    def __iter__(self):
+        current = self.head
+        while current != self.tail:
+            yield current.key, current.value  # (key, value) を返す
+            current = current.next
 
 
 

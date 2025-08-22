@@ -9,7 +9,7 @@
 # -------------------------------
 
 class Player:
-    def __init__(self, _uid:str, _name:str):
+    def __init__(self, _uid:str, _name:str, hash=None):
         self.uid =_uid
         self.name =_name
         self.info = (_uid, _name)
@@ -32,3 +32,16 @@ class Player:
 
     def __str__(self):
         return f"ID[{self.uid}]: {self.name}"
+
+    def __hash__(self):
+        return int(self.uid)
+
+    # @classmethod
+    # def hash(cls, key: str) -> int:
+    #     try:
+    #         return int(key)
+    #     except ValueError:
+    #         return hash(key)
+
+    def __eq__(self, other):
+        return isinstance(other, Player) and self.uid == other.uid
