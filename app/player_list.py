@@ -17,27 +17,15 @@ class PlayerList:
         self.tail = None
 
 
-    """Return true when the list is empty"""
+
     def is_empty(self):
+        """Return true when the list is empty"""
         if self.head is None:
             return True
         return False
 
-    """find tail from the list"""
-    def find_tail(self):
-        if not self.head:
-            return None
-        current = self.head
-        while current.next is not None:
-            current = current.next
-        self.tail = current
-        #print(f"Tail is {self.tail.player.name}")
-        return self.tail
-
-
-
-    """insert a new node at the head of the list"""
     def insert(self, uid, name):
+        """insert a new node at the head of the list"""
         new_player = Player(uid, name)
         new_node = PlayerNode(new_player)
         if self.is_empty():
@@ -48,46 +36,46 @@ class PlayerList:
             new_node.next = self.head
             self.head = new_node
 
-    """insert an item at the tail of the list"""
+
     def insert_tail(self, uid, name):
+        """insert an item at the tail of the list"""
         new_player = Player(uid, name)
         new_node = PlayerNode(new_player)
 
-        current_tail = self.find_tail()
         if self.is_empty():
             self.head = new_node
             self.tail = new_node
         else:
-            current_tail.next = new_node
-            new_node.prev = current_tail
+            self.tail.next = new_node
+            new_node.prev = self.tail
             self.tail = new_node
 
-    """delete a node from the head of the list"""
+
     def delete_head(self):
+        """delete a node from the head of the list"""
         if self.is_empty():
             return
         current_head = self.head
-        current_head.pre = None
+        current_head.prev = None
         self.head = current_head.next
 
-    """delete an item from the tail of a list"""
     def delete_tail(self):
+        """delete an item from the tail of a list"""
         if self.is_empty():
             return
-        # when there is ONE item in the list
         if self.head == self.tail:
             self.head = None
             self.tail = None
-            return
-        # when more than one item in the list
-        current_tail = self.tail
-        current_tail.next = None
-        self.tail = current_tail.prev
+        else:
+            self.tail = self.tail.prev
+            self.tail.next = None
 
-    """delete an item from the linked list based on its key
-        (key = uid)   
-    """
+
+
     def delete_key(self, key):
+        """delete an item from the linked list based on its key
+                (key = uid)
+            """
         if self.is_empty():
             return
 
@@ -118,9 +106,9 @@ class PlayerList:
             current.next.prev = current.prev
 
 
-    """display list from head to tail (forward=True), 
-       from tail to head (forward=False)"""
     def display(self, forward=True):
+        """display list from head to tail (forward=True),
+               from tail to head (forward=False)"""
         players = []
         if forward:
             current = self.head

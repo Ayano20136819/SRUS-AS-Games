@@ -37,8 +37,3 @@ class Player:
     def __str__(self):
         return f"ID[{self.uid}]: {self.name}"
 
-
-player = Player("101", "Test")
-print(player)
-player.uid = "201"
-print(player.uid)

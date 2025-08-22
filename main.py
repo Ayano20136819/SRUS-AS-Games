@@ -29,3 +29,5 @@ player = Player("101", "Test")
 print(player) # call __str__
 player.uid = "201" # setter uid
 print(player.uid) # getter uid
+player.name = "test"
+print(player.name)
