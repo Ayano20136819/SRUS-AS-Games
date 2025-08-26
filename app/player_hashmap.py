@@ -72,15 +72,23 @@ class PlayerHashMap:
     def __delitem__(self, key: Player):
         index = self.get_index(key)
         print(f"Delete index {index}")
-        player_node = self.hashmap[index]
+        player_info = self.hashmap[index]
+        player_node = player_info.find_key(key)
+        if player_node and player_node.player.uid == key.uid:
+            print(f"Delete player ID {key.uid}, Name {player_node.player.name}")
+            self.hashmap[index] = " "
+            self.count -= 1
+        else:
+            print(f"Delete player ID {key.uid} not found in hash map")
 
 
-
-    def print_hashmap(self):
-        print("\n--- Current Player HashMap Content ---")
+    def display(self):
+        print("--Current Players in HashMap ---")
         for i, player_list in enumerate(self.hashmap):
             print(f"Index {i}: {player_list}")
-        print("--------------------------------------\n")
+
+
+
 
 
 def main():
@@ -99,7 +107,7 @@ def main():
     hash_map[my_player] = my_player.name
     hash_map[my_player1] = my_player1.name
     hash_map[my_player2] = my_player2.name
-    hash_map.print_hashmap()
+    hash_map.display()
     print(f"len: {len(hash_map)}")
 
 
@@ -107,6 +115,10 @@ def main():
     #print(f"Name of UID 1 : {hash_map[my_player]}")
     print(f"Name of UID 2 : {hash_map[my_player1]}")
     print(f"Name of UID 11 : {hash_map[my_player2]}")
+
+    hash_map.__delitem__(my_player2)
+    hash_map.display()
+    print(f"len: {len(hash_map)}")
 
 
 

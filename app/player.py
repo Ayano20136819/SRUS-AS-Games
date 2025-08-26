@@ -34,14 +34,14 @@ class Player:
         return f"ID[{self.uid}]: {self.name}"
 
     def __hash__(self):
-        return int(self.uid)
+        return self.my_hash(self.uid)
 
-    # @classmethod
-    # def hash(cls, key: str) -> int:
-    #     try:
-    #         return int(key)
-    #     except ValueError:
-    #         return hash(key)
+    @classmethod
+    def my_hash(cls, key: str) -> int:
+        try:
+            return int(key)
+        except ValueError:
+            return hash(key)
 
     def __eq__(self, other):
         return isinstance(other, Player) and self.uid == other.uid
