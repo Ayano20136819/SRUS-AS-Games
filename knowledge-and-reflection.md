@@ -83,19 +83,17 @@ def sha256_hash(key: str, size: int) -> int:
 
 3. List the three most important attributes (arranged from most to least) in the context of a hash map? Justify your answer.
 
->   • Fast lookup(O(1))…directly map key to memory location
-> • Flexibility… dictionaries allows to immutable data types to be used as keys.
->   • Dynamic Size… dictionaries automatically manage storage capacity. When elements are 
+>   • Fast lookup(O(1))…directly map key to memory location  
+>   • Flexibility… dictionaries allows to immutable data types to be used as keys.  
+>   • Dynamic Size… dictionaries automatically manage storage capacity. When elements are   
 added and removed, dictionaries grow or shrink .
 
 4. Which of the above hash functions would you choose to implement the requirements of the task? Why?
 
 > I used simple hush and built-in hash() function for this task. 
 > When the key is not a Player object, I used Python built-in hash() function. 
-> It may map to different value each session, 
-> However, it provide good distribution and efficiency for general key. 
-> When key is player object, I want to remain consist across sessions, 
-> so I used simple hash in my_hash function. 
+> It may map to different value each session, so it provide good distribution and efficiency for general key. 
+> When key is player object, I want to remain consist across sessions, so I used simple hash in my_hash function. 
 > This ensures that each Player's uid always maps to the same value.
 
 5. In your own words, explain each line in the pearson hash function above in terms of the criteria you listed in question 2.
@@ -116,17 +114,17 @@ added and removed, dictionaries grow or shrink .
 > random.shuffle(pearson_table)
 > - Shuffle the numbers in the list to create a randomly rearranged lookup table.
 > 
-> Uniformity: helps to spread the hash values more evenly across the entire output. 
-> Collision resistance: Improved compared to simple ASCII value sum methods. 
-> Determinism: Guaranteed due to the fixed seed. 
-> Security: Not cryptographically secure because of the table is fixed and small.
+> Uniformity: helps to spread the hash values more evenly across the entire output.   
+> Collision resistance: Improved compared to simple ASCII value sum methods.   
+> Determinism: Guaranteed due to the fixed seed.   
+> Security: Not cryptographically secure because of the table is fixed and small.  
 > 
 > def pearson_hash(key: str, size: int) -> int:
 > - define pearson_hash function 
 > - Input key(string) and size(size of the hash table)
 > 
 > hash_ = 0
-> -Initialize the hash value to 0
+> - Initialize the hash value to 0
 > 
 > for char in key:
 > - Loops through each character in the string
@@ -136,16 +134,16 @@ added and removed, dictionaries grow or shrink .
 > - hah_ ^ ord(char): XORs the current hash with this value 
 > - hash_ : Use the result as an index to take the value from pearson_table and set it as the new hash_.
 > 
-> Input Sensitivity: small changes in the string produce different hash values. 
-> Collision Resistance: reduces collisions compared to simple sums. 
-> Efficiency: simple integer operations in a loop
+> Input Sensitivity: small changes in the string produce different hash values.   
+> Collision Resistance: reduces collisions compared to simple sums.   
+> Efficiency: simple integer operations in a loop  
 > 
 > return hash_ % size
 > - After processing all characters, return the remainder when the hash value is divided by size.
 > - This ensures the result falls within the range 0 to size-1, and can be used as a hash table index.
 > 
-> Uniformity: distributes hash values evenly across available indices.
-> Determinism: same input always produces same index.
+> Uniformity: distributes hash values evenly across available indices.  
+> Determinism: same input always produces same index.  
 
 > 
 
