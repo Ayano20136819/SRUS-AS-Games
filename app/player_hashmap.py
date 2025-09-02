@@ -29,8 +29,9 @@ class PlayerHashMap:
             print("This is not Player instance")
 
 
-    """Add a new player to PlayerList in a corresponding index in the hash map."""
+
     def __setitem__(self, key: Player, name: str) -> None:
+        """Add a new player to PlayerList in a corresponding index in the hash map."""
         # 1. Use the key to calculate an index into the hash map
         index = self.get_index(key)
         print(f"Index: {index}")
@@ -51,8 +52,9 @@ class PlayerHashMap:
             self.count += 1
 
 
-    """Retrieve a player from the PlayerList with the corresponding index in the hash map"""
+
     def __getitem__(self, key: Player):
+        """Retrieve a player from the PlayerList with the corresponding index in the hash map"""
         print("Retrieve a player from the PlayerList")
         index = self.get_index(key)
         print(f"Index: {index}")
@@ -63,13 +65,14 @@ class PlayerHashMap:
         else:
             return None
 
-    """Return the number of players in the hash map"""
+
     def __len__(self):
+        """Return the number of players in the hash map"""
         return self.count
 
 
-    """Remove a player from the PlayerList with the corresponding index in the hash map"""
     def __delitem__(self, key: Player):
+        """Remove a player from the PlayerList with the corresponding index in the hash map"""
         index = self.get_index(key)
         print(f"Delete index {index}")
         player_info = self.hashmap[index]
@@ -105,7 +108,7 @@ def main():
     # If it is, update the player's name
     # If it isn't, create a player and add the player to the player list
     hash_map[my_player] = my_player.name
-    print(f"Name......{hash_map[my_player]}")
+    print(f"Name: {hash_map[my_player]}")
     hash_map[my_player1] = my_player1.name
     hash_map.display()
     hash_map[my_player2] = my_player2.name
@@ -118,7 +121,8 @@ def main():
     print(f"Name of UID 2 : {hash_map[my_player1]}")
     print(f"Name of UID 11 : {hash_map[my_player2]}")
 
-    hash_map.__delitem__(my_player2)
+
+    del hash_map[my_player2]
     hash_map.display()
     print(f"len: {len(hash_map)}")
 

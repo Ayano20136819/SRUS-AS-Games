@@ -79,13 +79,41 @@ def sha256_hash(key: str, size: int) -> int:
 2. What are the advantages and disadvantages of each of the above hash functions? Evaluate in terms of uniformity, determinism, efficiency, collision resistance, sensitivity to input changes, and security[1](#Reference). You may need to do some reasearch to answer this question 😱
 > 
 > ![q2.png](q2.png)
+> 
+> 1. simplest hash function  
+>   It is decisive and calculates at an extremely fast, However, uniformity ias at the worst 
+     > because all keys are mapped to the same value. As the result, the collision rate is 
+     > at the maximum, it reacts not at all to changes in input, and security is completely 
+     > non-existent.  
+> 2. sums the ASCII values 
+>   It is decisive and provides some distribution, but uniformity is low, and anagrams(eg, 
+     > "abc" and "cba") collide to produce the same value. it is insensitive to minor 
+     > changes in input and lacks security.  
+> 3. Pearson hash function  
+>    It is more sophisticated. By using substitution tables to mix the input characters, it 
+     > achieves a better distribution than ASCII sum. It's also decisive and efficient, and 
+     > is sensitive to changes in the input to a certain extent. However, as the output is 
+     > limited to 8 bits, collisions remain frequent and it lacks cryptographic security.  
+> 4. Built-in Python  
+>   It's designed for use with hash table, and provides relatively good distribution and is 
+     > highly efficient. While deterministic within a single execution, its output changes 
+     > across sessions. It is sensitive to input variations, but cannot be used for 
+     > cryptographic purposes and offers no security.  
+> 5. SHA-256  
+>   It is the most powerful, and uniformly distributed across an extremely large output 
+     > space, possesses extremely high collision resistance, and even a single bit change in 
+     > the input causes a significant change in the output. It is cryptographically secure 
+     > and is ideal for application requiring reliability and security. Its only drawback is 
+     > that is slower than other methods, but it is still sufficiently practical for many 
+     > applications.  
+> 
 
 
 3. List the three most important attributes (arranged from most to least) in the context of a hash map? Justify your answer.
 
->   • Fast lookup(O(1))…directly map key to memory location
-> • Flexibility… dictionaries allows to immutable data types to be used as keys.
->   • Dynamic Size… dictionaries automatically manage storage capacity. When elements are 
+>   • Fast lookup(O(1))…directly map key to memory location  
+>   • Flexibility… dictionaries allows to immutable data types to be used as keys.  
+>   • Dynamic Size… dictionaries automatically manage storage capacity. When elements are   
 added and removed, dictionaries grow or shrink .
 
 4. Which of the above hash functions would you choose to implement the requirements of the task? Why?
@@ -224,7 +252,7 @@ added and removed, dictionaries grow or shrink .
 >       index = get_index(key)  
 >       player_list = hashmap[index]  
 >       node = player_list.find_key(key)
->       if node EXISTS and node.player.uid == key.uid:  
+>       if node EXISTS and node.player.uid == key.uid:    
 >           remove node from player_list  
 >           decrement count by 1  
 >       else:  
