@@ -43,7 +43,7 @@ class TestPlayerHashMap(TestCase):
         """ Remove a player from the hash map """
         self.player_hash_map[self.my_player1] = self.my_player1.name
         self.player_hash_map[self.my_player2] = self.my_player2.name
-        self.player_hash_map.__delitem__(self.my_player1)
+        del self.player_hash_map[self.my_player1]
         count = len(self.player_hash_map)
         print(f"Count: {len(self.player_hash_map)}")
         self.assertEqual(count, 1)

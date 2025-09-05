@@ -22,11 +22,14 @@ class PlayerHashMap:
     def get_index(self, key: str | Player) -> int:
         if isinstance(key, Player):
             print("This is Player instance")
-            key = int(key.uid)
-            print(f"key: {key}")
-            return key % self.size
+            key_value = hash(key)
+            print(f"key: {key.uid}")
+            return key_value % self.size
         else:
             print("This is not Player instance")
+            key_value = Player.my_hash(key)
+            return key_value % self.size
+
 
 
 
@@ -110,7 +113,7 @@ def main():
     hash_map[my_player] = my_player.name
     print(f"Name: {hash_map[my_player]}")
     hash_map[my_player1] = my_player1.name
-    hash_map.display()
+    #hash_map.display()
     hash_map[my_player2] = my_player2.name
     hash_map.display()
     print(f"len: {len(hash_map)}")

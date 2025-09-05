@@ -16,22 +16,22 @@ class Player:
 
     @property
     def uid(self):
-        print("getter for uid called")
+        #print("getter for uid called")
         return self._uid
 
     @uid.setter
     def uid(self, value: str):
-        print("setter for uid called")
+        #print("setter for uid called")
         self._uid = value
 
     @property
     def name(self):
-        print("getter for name called")
+        #print("getter for name called")
         return self._name
 
     @name.setter
     def name(self, value: str):
-        print("setter for name called")
+        #print("setter for name called")
         self._name = value
 
     def __str__(self):
