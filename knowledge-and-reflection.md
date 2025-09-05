@@ -305,3 +305,9 @@ added and removed, dictionaries grow or shrink .
 6. **Security**
    - It should be computationally infeasible to find an input key that produces a specific hash value (non-reversibility)
    - The output hash values should appear random and unpredictable.
+
+
+### My References
+GeeksforGeeks. “Hash Map in Python.” GeeksforGeeks, 6 Dec. 2020, www.geeksforgeeks.org/python/hash-map-in-python/  
+“SHA in Python.” GeeksforGeeks, 14 Feb. 2018, www.geeksforgeeks.org/python/sha-in-python/.    
+W3Schools. “W3Schools.com.” W3schools.com, 2024, www.w3schools.com/dsa/dsa_data_hashmaps.php.
