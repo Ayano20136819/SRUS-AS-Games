@@ -78,34 +78,17 @@ def sha256_hash(key: str, size: int) -> int:
 
 2. What are the advantages and disadvantages of each of the above hash functions? Evaluate in terms of uniformity, determinism, efficiency, collision resistance, sensitivity to input changes, and security[1](#Reference). You may need to do some reasearch to answer this question 😱
 > 
-> ![q2.png](q2.png)
 > 
 > 1. simplest hash function  
->   It is decisive and calculates at an extremely fast, However, uniformity ias at the worst 
-     > because all keys are mapped to the same value. As the result, the collision rate is 
-     > at the maximum, it reacts not at all to changes in input, and security is completely 
-     > non-existent.  
+>   It is decisive and calculates at an extremely fast, However, uniformity ias at the worst because all keys are mapped to the same value. As the result, the collision rate is at the maximum, it reacts not at all to changes in input, and security is completely non-existent.  
 > 2. sums the ASCII values 
->   It is decisive and provides some distribution, but uniformity is low, and anagrams(eg, 
-     > "abc" and "cba") collide to produce the same value. it is insensitive to minor 
-     > changes in input and lacks security.  
+>   It is decisive and provides some distribution, but uniformity is low, and anagrams(eg, "abc" and "cba") collide to produce the same value. it is insensitive to minor changes in input and lacks security.  
 > 3. Pearson hash function  
->    It is more sophisticated. By using substitution tables to mix the input characters, it 
-     > achieves a better distribution than ASCII sum. It's also decisive and efficient, and 
-     > is sensitive to changes in the input to a certain extent. However, as the output is 
-     > limited to 8 bits, collisions remain frequent and it lacks cryptographic security.  
+>    It is more sophisticated. By using substitution tables to mix the input characters, it achieves a better distribution than ASCII sum. It's also decisive and efficient, and is sensitive to changes in the input to a certain extent. However, as the output is limited to 8 bits, collisions remain frequent and it lacks cryptographic security.  
 > 4. Built-in Python  
->   It's designed for use with hash table, and provides relatively good distribution and is 
-     > highly efficient. While deterministic within a single execution, its output changes 
-     > across sessions. It is sensitive to input variations, but cannot be used for 
-     > cryptographic purposes and offers no security.  
+>   It's designed for use with hash table, and provides relatively good distribution and is highly efficient. While deterministic within a single execution, its output changes across sessions. It is sensitive to input variations, but cannot be used for cryptographic purposes and offers no security.  
 > 5. SHA-256  
->   It is the most powerful, and uniformly distributed across an extremely large output 
-     > space, possesses extremely high collision resistance, and even a single bit change in 
-     > the input causes a significant change in the output. It is cryptographically secure 
-     > and is ideal for application requiring reliability and security. Its only drawback is 
-     > that is slower than other methods, but it is still sufficiently practical for many 
-     > applications.  
+>   It is the most powerful, and uniformly distributed across an extremely large output space, possesses extremely high collision resistance, and even a single bit change in  the input causes a significant change in the output. It is cryptographically secure and is ideal for application requiring reliability and security. Its only drawback is that is slower than other methods, but it is still sufficiently practical for many applications.  
 > 
 
 
