@@ -111,12 +111,8 @@ def main():
     # If it is, update the player's name
     # If it isn't, create a player and add the player to the player list
     hash_map[my_player] = my_player.name
-    print(f"Name: {hash_map[my_player]}")
     hash_map[my_player1] = my_player1.name
-    #hash_map.display()
     hash_map[my_player2] = my_player2.name
-    hash_map.display()
-    print(f"len: {len(hash_map)}")
 
 
     #Retrieve a player from the PlayerList

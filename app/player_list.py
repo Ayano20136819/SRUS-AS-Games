@@ -54,10 +54,6 @@ class PlayerList:
             self.tail = new_node
 
 
-
-
-
-
     def delete_head(self):
         """delete a node from the head of the list"""
         if self.is_empty():
