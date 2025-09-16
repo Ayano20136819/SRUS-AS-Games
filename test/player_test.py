@@ -21,3 +21,7 @@ class TestPlayer(TestCase):
     def test_player_name(self):
         player = Player("13", "John")
         self.assertEqual(player.name, "John")
+
+    def test_player_score(self):
+        player = Player(11, "Test", 9)
+        self.assertEqual(player.score, 9)

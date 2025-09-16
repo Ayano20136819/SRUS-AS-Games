@@ -9,9 +9,10 @@
 # -------------------------------
 
 class Player:
-    def __init__(self, uid:str, name:str):
+    def __init__(self, uid:str, name:str, score=0):
         self._uid = uid
         self._name = name
+        self._score = score
         self.info = (uid, name)
 
     @property
@@ -34,6 +35,24 @@ class Player:
         print("setter for name called")
         self._name = value
 
-    def __str__(self):
-        return f"ID[{self.uid}]: {self.name}"
+    @property
+    def score(self):
+        print("getter for score called")
+        return self._score
 
+    @score.setter
+    def score(self, value: int):
+        if value < 0:
+            raise ValueError
+        self._score = value
+
+    # def __str__(self):
+    #     return f"ID[{self.uid}]: {self.name}"
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}(name={self.name}, uid={self.uid}, score={self.score})"
+
+
+# player = Player(1, "test")
+# player.score = -1
+# print(player)
