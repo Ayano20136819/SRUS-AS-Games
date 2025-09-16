@@ -97,14 +97,22 @@ def test_sort_players(self):
 What was the outcome of running the above unit test, copy paste the output **for just this particular test** below:
 
 ```text
-Copy the traceback you got when you ran the test here.
+Ran 1 test in 0.021s
+
+FAILED (errors=1)
+
+Error
+Traceback (most recent call last):
+  File "C:\Users\SASAKA.TDM\source\repo\SRUS-AS-Games\test\player_test.py", line 33, in test_sort_players
+    sorted_players = sorted(players)
+TypeError: '<' not supported between instances of 'Player' and 'Player'
 ```
 
 ### 4.3. Success criteria
 
-- [ ] Unit test added to `test_player.py`
-- [ ] Unit test output provided
-- [ ] Unit test output reflects the error in `sorted(players)` (if you are getting another error read the instructions CAREFULLY)
+- [x] Unit test added to `test_player.py`
+- [x] Unit test output provided
+- [x] Unit test output reflects the error in `sorted(players)` (if you are getting another error read the instructions CAREFULLY)
 
 #### 4.3.1. Question: What dunder method is required for Python to sort players?
 
@@ -114,8 +122,7 @@ What is the **only** magic method that must be implemented in the player class f
 
 **Hint:** if you don't recall this from class, the error message you got when you ran the test will help you.
 -------
-> Answer Here
-> Yes, here - instead of this text!
+> I used __lt__ (less than) method to compare scores.
 -------
 #### 4.3.2. Task: Implement the magic method in the Player class
 

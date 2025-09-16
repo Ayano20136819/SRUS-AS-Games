@@ -23,5 +23,18 @@ class TestPlayer(TestCase):
         self.assertEqual(player.name, "John")
 
     def test_player_score(self):
-        player = Player(11, "Test", 9)
+        player = Player('11', "Test", 9)
         self.assertEqual(player.score, 9)
+
+    def test_sort_players(self):
+        players = [Player('01', "Alice", 10), Player('02', "Bob", 5), Player('03',"Charlie", 15)]
+
+        # do **not** change the following code:
+        sorted_players = sorted(players)
+        print(sorted_players)
+
+        # players must be sorted by score as shown here:
+        manually_sorted_players = [Player('02',"Bob",  5), Player('01',"Alice", 10), Player('03',"Charlie", 15)]
+        print(manually_sorted_players)
+
+        self.assertListEqual(sorted_players, manually_sorted_players)

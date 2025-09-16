@@ -17,27 +17,27 @@ class Player:
 
     @property
     def uid(self):
-        print("getter for uid called")
+        #print("getter for uid called")
         return self._uid
 
     @uid.setter
     def uid(self, value:str):
-        print("setter for uid called")
+        #print("setter for uid called")
         self._uid = value
 
     @property
     def name(self):
-        print("getter for name called")
+        #rint("getter for name called")
         return self._name
 
     @name.setter
     def name(self, value:str):
-        print("setter for name called")
+        #print("setter for name called")
         self._name = value
 
     @property
     def score(self):
-        print("getter for score called")
+        #print("getter for score called")
         return self._score
 
     @score.setter
@@ -51,6 +51,12 @@ class Player:
 
     def __repr__(self):
         return f"{self.__class__.__name__}(name={self.name}, uid={self.uid}, score={self.score})"
+
+    def __lt__(self, other):
+        return self.score < other.score
+
+    def __eq__(self, other):
+        return self.uid == other.uid
 
 
 # player = Player(1, "test")
