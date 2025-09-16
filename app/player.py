@@ -63,13 +63,18 @@ class Player:
     def sort_quickly(self, array):
         if len(array) <= 1:
             return array
-        pivot = array[0]
+
+        if len(array) % 2 == 1:
+            middle = int((len(array)-1)/2)
+        middle = int(len(array)/2)
+        #print(f"Middle of the list {middle}")
+        pivot = array[middle]
         left = []
         right = []
-        for x in array[1:]:
+        for x in array[:]:
             if x > pivot:
                 left.append(x)
-            else:
+            elif x < pivot:
                 right.append(x)
         return Player.sort_quickly(left) + [pivot] + Player.sort_quickly(right)
 

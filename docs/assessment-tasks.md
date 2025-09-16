@@ -321,7 +321,28 @@ Create a test case that tries to sort 1000 players that are already sorted.
 If you get a failure, include the failure below:
 
 ```text
-YOUR FAILURE HERE
+Error
+Traceback (most recent call last):
+  File "C:\Users\SASAKA.TDM\source\repo\SRUS-AS-Games\test\player_test.py", line 75, in test_sort_sorted_players
+    re_sort_list = Player.sort_quickly(sorted_list)
+  File "C:\Users\SASAKA.TDM\source\repo\SRUS-AS-Games\app\player.py", line 74, in sort_quickly
+    return Player.sort_quickly(left) + [pivot] + Player.sort_quickly(right)
+                                                 ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\SASAKA.TDM\source\repo\SRUS-AS-Games\app\player.py", line 74, in sort_quickly
+    return Player.sort_quickly(left) + [pivot] + Player.sort_quickly(right)
+                                                 ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\SASAKA.TDM\source\repo\SRUS-AS-Games\app\player.py", line 74, in sort_quickly
+    return Player.sort_quickly(left) + [pivot] + Player.sort_quickly(right)
+                                                 ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  [Previous line repeated 982 more times]
+  File "C:\Users\SASAKA.TDM\source\repo\SRUS-AS-Games\app\player.py", line 70, in sort_quickly
+    if x > pivot:
+       ^^^^^^^^^
+  File "C:\Users\SASAKA.TDM\source\repo\SRUS-AS-Games\app\player.py", line 56, in __lt__
+    return self.score < other.score
+           ^^^^^^^^^^
+RecursionError: maximum recursion depth exceeded
+
 ```
 
 ##### 5.3.4.1 Question: Why does the algorithm fail on presorted values?
@@ -330,22 +351,40 @@ Provide a reason why this test failed (if you got a recursion errors, you need t
 
 If your implementation did not fail, you must nevertheless explain why the senior developers algorithm has worse space complexity for presorted values.
 
-> Answer here
+> The reason I failed this test case pivot is always first element in the list.
+> When I call quicksort with a sorted list, the list is not split into halves and one of the sub-array is always empty.
+> So the call stack is really long and over 1000 times. That cause recursion error.
 
 Propose a fix to your sorting algorithm that fixes this issue.
 
 ```python
-# YOUR FIX HERE
-# Highlight what the fix was
+@classmethod
+    def sort_quickly(self, array):
+        if len(array) <= 1:
+            return array
+
+        if len(array) % 2 == 1:
+            middle = int((len(array)-1)/2)
+        middle = int(len(array)/2)
+        
+        pivot = array[middle]
+        left = []
+        right = []
+        for x in array[:]:
+            if x > pivot:
+                left.append(x)
+            elif x < pivot:
+                right.append(x)
+        return Player.sort_quickly(left) + [pivot] + Player.sort_quickly(right)
 ```
 
 #### 5.3.5. Success criteria
 
-- [ ] Test case added to `test_player.py`
-- [ ] Test case passes only when changes above are added
-- [ ] Explanation of why the algorithm fails on presorted values
-- [ ] Fix to the algorithm provided
-- [ ] At least one commit capturing the above changes
+- [X] Test case added to `test_player.py`
+- [X] Test case passes only when changes above are added
+- [X] Explanation of why the algorithm fails on presorted values
+- [X] Fix to the algorithm provided
+- [X] At least one commit capturing the above changes
 
 ## 6. Task: Authenticity of in class work
 
