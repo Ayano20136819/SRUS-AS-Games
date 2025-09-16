@@ -31,10 +31,20 @@ class TestPlayer(TestCase):
 
         # do **not** change the following code:
         sorted_players = sorted(players)
-        print(sorted_players)
+        #print(sorted_players)
 
         # players must be sorted by score as shown here:
         manually_sorted_players = [Player('02',"Bob",  5), Player('01',"Alice", 10), Player('03',"Charlie", 15)]
-        print(manually_sorted_players)
+        #print(manually_sorted_players)
 
         self.assertListEqual(sorted_players, manually_sorted_players)
+
+    def test_players_can_be_compared_by_score(self):
+        # note: ensure initialization code is valid for **your** implementation
+        alice = Player('01', "Alice",  score=10)
+        bob = Player('02', "Bob", score=5)
+
+        # Add the appropriate expression to the following assert test
+        self.assertTrue(alice, bob)
+        # or, event better
+        self.assertGreater(alice, bob)

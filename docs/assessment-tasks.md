@@ -143,7 +143,17 @@ def test_players_can_be_compared_by_score(self):
 Run the test and confirm that your error resembles the previous error
 
 ```text
-INSERT ERROR OUTPUT HERE
+Ran 1 test in 0.004s
+
+FAILED (errors=1)
+
+Error
+Traceback (most recent call last):
+  File "C:\Users\SASAKA.TDM\source\repo\SRUS-AS-Games\test\player_test.py", line 50, in test_players_can_be_compared_by_score
+    self.assertLess(alice, bob)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'Player' and 'Player'
+
 ```
 
 - Implement the appropriate magic method in the Player class and ensure you pass this test
@@ -152,25 +162,34 @@ INSERT ERROR OUTPUT HERE
 
 #### 4.3.3. Success criteria
 
-- [ ] Unit test added to `test_player.py`
-- [ ] Magic method implemented in `Player` class
-- [ ] Initial Failed Unit test output provided
-- [ ] Unit test runs successfully with submitted code
-- [ ] Dunder method not employed directly
-- [ ] At least one commit capturing the above changes
+- [x] Unit test added to `test_player.py`
+- [x] Magic method implemented in `Player` class
+- [x] Initial Failed Unit test output provided
+- [x] Unit test runs successfully with submitted code
+- [x] Dunder method not employed directly
+- [x] At least one commit capturing the above changes
 
 #### 4.3.4. Task: Are we sorted yet?
 
 Rerun `test_sort_players` does the test pass? If not, include the output below:
 
 ```text
-Your output here
+Testing started at 1:05 pm ...
+Launching unittests with arguments python -m unittest player_test.TestPlayer.test_sort_players in C:\Users\SASAKA.TDM\source\repo\SRUS-AS-Games\test
+
+
+
+Ran 1 test in 0.001s
+
+OK
+
 ```
 
 ##### 4.3.4.1 Question: why did the equality comparison fail?
 Why did the test fail (note: if it doesn't fail, it means there is something you have already done before you were asked to do so - if that's the case, you need to figure out what that is!)?
 -------
-> Answer here
+> if I do not set __eq__ method in the player.py, python could not recognize the same object.
+> For example, I set uid for this method, so if uid is the same, the object must be the same object.
 >
 -------
 Add the necessary code to the Player class to ensure that the `test_sort_players` test passes.
