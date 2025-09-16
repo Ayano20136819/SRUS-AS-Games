@@ -189,7 +189,7 @@ OK
 Why did the test fail (note: if it doesn't fail, it means there is something you have already done before you were asked to do so - if that's the case, you need to figure out what that is!)?
 -------
 > if I do not set __eq__ method in the player.py, python could not recognize the same object.
-> For example, I set uid for this method, so if uid is the same, the object must be the same object.
+> For example, I set uid for this method,so when uid is the same, the object must recognize the same object.
 >
 -------
 Add the necessary code to the Player class to ensure that the `test_sort_players` test passes.
@@ -232,10 +232,16 @@ def sort_quickly(arr):
 
 What is the expected time and space complexity of the above algorithm? You can answer using big O or in plain English but in both cases you MUST justify your answer.
 
-> This is a quick sort which is usually faster than selection sorts. 
-> This Space complexity is O(n). 
-> Time complexity depends on the situation.
-> Avarage case is O(n log (n)), Worst case is O(n^2)
+> This is a quick sort which is usually faster than selection sorts.  
+> 
+> This Space complexity
+> Worst case o(n) leads to a skewed recursion tree because of unbalanced partitioning.  
+> Best case O(log n) leads to a balanced recursion tree as a result of balanced partitioning. 
+> 
+> Time complexity depends on the situation.  
+> Average case is O(n log n) when the array is divided into two parts, but not equal.  
+> Best case is (n log n) when the pivot is the middle and the array is divided into two equal halves.  
+> Worst case is O(n^2) when the pivot is smallest or largest element like sorted list.
 
 ### 5.2. Task: Implement the custom sorting algorithm
 
@@ -353,7 +359,7 @@ If your implementation did not fail, you must nevertheless explain why the senio
 
 > The reason I failed this test case pivot is always first element in the list.
 > When I call quicksort with a sorted list, the list is not split into halves and one of the sub-array is always empty.
-> So the call stack is really long and over 1000 times. That cause recursion error.
+> So the call stack is really long and that cause recursion error.
 
 Propose a fix to your sorting algorithm that fixes this issue.
 
@@ -391,7 +397,7 @@ Propose a fix to your sorting algorithm that fixes this issue.
 Complete the following snippet before you submit:
 
 ```text
-I, <name and student number>, completed this work in class <room number>, on <date>, under the supervision of <assessor's name>.
+I, Ayano Sasakido (20136819), completed this work in class 306, on 16th September 2025, under the supervision of Raf.
 ```
 
 Or (if not completed in class):
@@ -405,10 +411,10 @@ I understand that until I meet my assessor to confirm that this work is a valid 
 
 ## 7. Submit your work
 
-- [ ] Ensure all tasks are complete and tests pass
-- [ ] Answer all questions in your own words
-- [ ] Complete the statement of authenticity
-- [ ] Include `.git` showing each task committed (you must show at least 5 commits)
+- [x] Ensure all tasks are complete and tests pass
+- [x] Answer all questions in your own words
+- [x] Complete the statement of authenticity
+- [x] Include `.git` showing each task committed (you must show at least 5 commits)
 - [ ] Annotated tag of your last commit as `por3-finish`
 - [ ] Push your changes to your GitHub repository
 - [ ] Submit a zip of your repository to the LMS (ensure you do not add the `.venv` or `__pycache__` folders)
