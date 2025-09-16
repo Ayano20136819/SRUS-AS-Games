@@ -10,6 +10,7 @@
 
 from app.player import Player
 from unittest import TestCase
+import random
 
 
 class TestPlayer(TestCase):
@@ -54,3 +55,13 @@ class TestPlayer(TestCase):
         #print(Player.sort_quickly(players))
         expect_order = [Player(name="Charlie", uid="03", score=15), Player(name="Alice", uid='01', score=10), Player(name="Bob", uid='02', score=5)]
         self.assertEqual(Player.sort_quickly(players), expect_order)
+
+    def test_sort_1000_players(self):
+        players = [Player(uid=f'{i}', name="Dummy_name", score=random.randint(0, 1000)) for i in range(1000)]
+        sorted_list = sorted(players, reverse=True)
+        print(players)
+        print(sorted_list)
+        max_player = max(players)
+        print(max_player)
+        self.assertEqual(max_player, sorted_list[0])
+
