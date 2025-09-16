@@ -59,6 +59,21 @@ class Player:
         return self.uid == other.uid
 
 
+    @classmethod
+    def sort_quickly(self, array):
+        if len(array) <= 1:
+            return array
+        pivot = array[0]
+        left = []
+        right = []
+        for x in array[1:]:
+            if x > pivot:
+                left.append(x)
+            else:
+                right.append(x)
+        return Player.sort_quickly(left) + [pivot] + Player.sort_quickly(right)
+
+
 # player = Player(1, "test")
 # player.score = -1
 # print(player)

@@ -48,3 +48,9 @@ class TestPlayer(TestCase):
         self.assertTrue(alice, bob)
         # or, event better
         self.assertGreater(alice, bob)
+
+    def test_sort_descending_score(self):
+        players = [Player('01', "Alice", 10), Player('02', "Bob", 5), Player('03', "Charlie", 15)]
+        #print(Player.sort_quickly(players))
+        expect_order = [Player(name="Charlie", uid="03", score=15), Player(name="Alice", uid='01', score=10), Player(name="Bob", uid='02', score=5)]
+        self.assertEqual(Player.sort_quickly(players), expect_order)

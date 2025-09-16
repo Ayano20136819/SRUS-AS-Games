@@ -196,10 +196,10 @@ Add the necessary code to the Player class to ensure that the `test_sort_players
 
 #### 4.3.5. Success criteria
 
-- [ ] Correct explanation of why `test_sort_players` failed/passed
-- [ ] Correct implementation of the magic method in the `Player` class
-- [ ] `test_sort_players` passes when run against the submitted code
-- [ ] At least one commit capturing the above changes
+- [x] Correct explanation of why `test_sort_players` failed/passed
+- [x] Correct implementation of the magic method in the `Player` class
+- [x] `test_sort_players` passes when run against the submitted code
+- [x] At least one commit capturing the above changes
 
 ## 5. Implement a custom sorting algorithm
 
@@ -232,7 +232,10 @@ def sort_quickly(arr):
 
 What is the expected time and space complexity of the above algorithm? You can answer using big O or in plain English but in both cases you MUST justify your answer.
 
-> Answer here
+> This is a quick sort which is usually faster than selection sorts. 
+> This Space complexity is O(n). 
+> Time complexity depends on the situation.
+> Avarage case is O(n log (n)), Worst case is O(n^2)
 
 ### 5.2. Task: Implement the custom sorting algorithm
 
@@ -247,16 +250,28 @@ Add a separate test case to `test_player.py` to test your custom sorting algorit
 Include your code below:
 
 ```python
-# YOUR CUSTOM Sorting here
+@classmethod
+    def sort_quickly(self, array):
+        if len(array) <= 1:
+            return array
+        pivot = array[0]
+        left = []
+        right = []
+        for x in array[1:]:
+            if x > pivot:
+                left.append(x)
+            else:
+                right.append(x)
+        return Player.sort_quickly(left) + [pivot] + Player.sort_quickly(right)
 ```
 
 #### 5.2.3. Success criteria
 
-- [ ] Custom sorting algorithm implemented in the `Player` class as `classmethod`
-- [ ] Custom sorting algorithm sorts in descending order
-- [ ] Custom sorting algorithm compares players using their score (via the rich comparison operators)
-- [ ] Custom sorting algorithm tested in `test_player.py` and tests passed
-- [ ] At least one commit capturing the above changes
+- [x] Custom sorting algorithm implemented in the `Player` class as `classmethod`
+- [x] Custom sorting algorithm sorts in descending order
+- [x] Custom sorting algorithm compares players using their score (via the rich comparison operators)
+- [x] Custom sorting algorithm tested in `test_player.py` and tests passed
+- [x] At least one commit capturing the above changes
 
 ### 5.3. Test your custom sorting algorithm at scale
 

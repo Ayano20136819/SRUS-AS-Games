@@ -10,20 +10,23 @@ from app.player_list import PlayerList
 
 # print(node.key())
 
-list = PlayerList()
-list.insert_tail(1, "test1")
-list.insert_tail(2, "test2")
-list.insert_tail(3, "test3")
+#list = PlayerList()
+# list.insert_tail(1, "test1")
+# list.insert_tail(2, "test2")
+# list.insert_tail(3, "test3")
 
-print("List forward:")
-list.display(True)
-print()
-print("List backward:")
-list.display(False)
-print()
-player = Player("101", "Test")
-print(player) # call __str__
-player.uid = "201" # setter uid
-print(player.uid) # getter uid
-player.name = "test"
-print(player.name)
+
+
+# print("List forward:")
+# list.display(True)
+# print()
+# print("List backward:")
+# list.display(False)
+# print()
+# player = Player("101", "Test")
+# print(player) # call __str__
+# player.uid = "201" # setter uid
+# print(player.uid) # getter uid
+# player.name = "test"
+# print(player.name)
+
