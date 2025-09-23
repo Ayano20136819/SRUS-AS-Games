@@ -8,21 +8,28 @@ class PlayerBNode:
 
     @property
     def player(self):
-        return self.player
+        return self._player
 
     @property
     def left(self):
-        return self.left
+        return self._left
 
     @left.setter
     def left(self, value):
-        self.left = value
+        self._left = value
 
     @property
     def right(self):
-        return self.right
+        return self._right
 
     @right.setter
     def right(self, value):
-        self.right = value
+        self._right = value
+
+    def __lt__(self, other):
+        return self.player.name < other.player.name
+
+    def __repr__(self):
+        class_name = self.__class__.__name__
+        return f'{class_name}(PlayerName={self.player!r}, left={self.left!r}, right={self.right!r}'
 

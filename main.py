@@ -1,6 +1,7 @@
 from app.player import Player
 from app.player_node import PlayerNode
 from app.player_list import PlayerList
+from app.player_bst import PlayerBST
 
 
 # player = Player("2","Test")
@@ -29,4 +30,14 @@ from app.player_list import PlayerList
 # print(player.uid) # getter uid
 # player.name = "test"
 # print(player.name)
+
+
+player1 = Player("2", "Test")
+player2 = Player("3", "Test")
+player3 = Player("6", "Test")
+bst = PlayerBST()
+bst.insert(player1)
+bst.insert(player2)
+bst.insert(player3)
+print(bst)
 
