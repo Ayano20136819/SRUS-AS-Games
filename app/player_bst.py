@@ -62,6 +62,46 @@ class PlayerBST:
             return self.search(name, current_root.right)
 
 
+    def inOrderTraversal(self, current_node, result= None):
+        if result is None:
+            result = []
+
+        if current_node is not None:
+            self.inOrderTraversal(current_node.left, result)
+            result.append(current_node.player)
+            self.inOrderTraversal(current_node.right, result)
+        return result
+
+
+    def create_balanced_bst(self, sorted_list):
+        if sorted_list is None:
+            return
+
+        if len(sorted_list) == 0:
+            return
+        elif len(sorted_list) % 2 == 0:
+            middle = len(sorted_list) // 2
+        else:
+            middle = (len(sorted_list) - 1) // 2
+
+        print(f"middle index: {middle}")
+
+        root_player = sorted_list[middle]
+        print(f"root_player: {root_player}")
+        root_node = PlayerBNode(root_player)
+
+        root_node.left = self.create_balanced_bst(sorted_list[:middle])
+        root_node.right = self.create_balanced_bst(sorted_list[middle + 1 :])
+
+        return root_node
+
+    def print_bst(self, node, level=0):
+        if node is not None:
+            self.print_bst(node.right, level + 1)
+            print("    " * level + f"- {node.player.name}")
+            self.print_bst(node.left, level + 1)
+
+
 
 
 

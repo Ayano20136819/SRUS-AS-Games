@@ -32,16 +32,28 @@ from app.player_bst import PlayerBST
 # print(player.name)
 
 
-player1 = Player("2", "Test1")
+player1 = Player("2", "Test3")
 player2 = Player("3", "Test2")
-player3 = Player("6", "Test3")
+player3 = Player("6", "Test1")
+player4 = Player("1", "Test0")
+player5 = Player("8", "Test5")
 bst = PlayerBST()
 bst.insert(player1)
 bst.insert(player2)
 bst.insert(player3)
-print(bst)
+bst.insert(player4)
+bst.insert(player5)
 
-print(bst.search("Test1"))
-print(bst.search("Test2"))
-print(bst.search("Test4"))
+print(bst)
+sorted_players = bst.inOrderTraversal(bst._root)
+print(sorted_players)
+balanced_root = bst.create_balanced_bst(sorted_players)
+bst.print_bst(balanced_root)
+
+
+
+
+# print(bst.search("Test1"))
+# print(bst.search("Test2"))
+# print(bst.search("Test4"))
 
