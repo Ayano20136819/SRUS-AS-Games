@@ -32,9 +32,9 @@ from app.player_bst import PlayerBST
 # print(player.name)
 
 
-player1 = Player("2", "Test")
-player2 = Player("3", "Test")
-player3 = Player("6", "Test")
+player1 = Player("2", "Test1")
+player2 = Player("3", "Test2")
+player3 = Player("6", "Test3")
 bst = PlayerBST()
 bst.insert(player1)
 bst.insert(player2)

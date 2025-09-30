@@ -29,6 +29,9 @@ class PlayerBNode:
     def __lt__(self, other):
         return self.player.name < other.player.name
 
+    def __eq__(self, other):
+        return self.player.uid == other.player.uid
+
     def __repr__(self):
         class_name = self.__class__.__name__
         return f'{class_name}(PlayerName={self.player!r}, left={self.left!r}, right={self.right!r}'

@@ -7,6 +7,9 @@ class PlayerBST:
         class_name = self.__class__.__name__
         return f'{class_name}({self._root!r})'
 
+
+
+
     def insert(self, player, current_root=None):
         if not isinstance(player, PlayerBNode):
             new_node = PlayerBNode(player)

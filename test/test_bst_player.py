@@ -18,4 +18,18 @@ class TestPlayerList(TestCase):
         bst = PlayerBST()
         bst.insert(player1)
         print(bst)
-        #self.assertEqual(PlayerBNode.player)
+        self.assertEqual(str(bst),
+                         "PlayerBST(PlayerBNode(PlayerName=Player(name=John, uid=2, "
+                               "score=0), left=None, right=None)")
+
+    def test_insert_two_people(self):
+        player1 = Player("2", "1Test")
+        player2 = Player("3", "2Test")
+        bst = PlayerBST()
+        bst.insert(player1)
+        bst.insert(player2)
+        print(bst)
+        self.assertEqual(str(bst),
+                         "PlayerBST(PlayerBNode(PlayerName=Player(name=1Test, uid=2, "
+                         "score=0), left=None, right=PlayerBNode(PlayerName=Player("
+                         "name=2Test, uid=3, score=0), left=None, right=None)")
