@@ -53,10 +53,10 @@ class Player:
         return f"{self.__class__.__name__}(name={self.name}, uid={self.uid}, score={self.score})"
 
     def __lt__(self, other):
-        return self.score < other.score
+        return self.name < other.name
 
     def __eq__(self, other):
-        return self.uid == other.uid
+        return self.name == other.name
 
 
     @classmethod

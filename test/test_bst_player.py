@@ -33,3 +33,21 @@ class TestPlayerList(TestCase):
                          "PlayerBST(PlayerBNode(PlayerName=Player(name=1Test, uid=2, "
                          "score=0), left=None, right=PlayerBNode(PlayerName=Player("
                          "name=2Test, uid=3, score=0), left=None, right=None)")
+
+    def test_search_node(self):
+        player1 = Player("2", "1Test")
+        player2 = Player("3", "2Test")
+        bst = PlayerBST()
+        bst.insert(player1)
+        bst.insert(player2)
+        result = bst.search("1Test")
+        self.assertEqual(result, "1Test")
+
+    def test_search_unexisting_node(self):
+        player1 = Player("2", "1Test")
+        player2 = Player("3", "2Test")
+        bst = PlayerBST()
+        bst.insert(player1)
+        bst.insert(player2)
+        result = bst.search("Dummy")
+        self.assertEqual(str(result), "None")

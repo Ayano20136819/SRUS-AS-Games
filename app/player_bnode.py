@@ -30,7 +30,7 @@ class PlayerBNode:
         return self.player.name < other.player.name
 
     def __eq__(self, other):
-        return self.player.uid == other.player.uid
+        return self.player.name == other.player.name
 
     def __repr__(self):
         class_name = self.__class__.__name__

@@ -41,3 +41,7 @@ bst.insert(player2)
 bst.insert(player3)
 print(bst)
 
+print(bst.search("Test1"))
+print(bst.search("Test2"))
+print(bst.search("Test4"))
+
