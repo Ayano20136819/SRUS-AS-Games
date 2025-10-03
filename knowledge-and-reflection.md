@@ -73,8 +73,11 @@ def sha256_hash(key: str, size: int) -> int:
 
 1. All of the above functions are hash functions. Explain how so - what key properties do they all share?
 
-> These function are all hash functions because all inputs (key) are converted to numerous index. 
-> Mapping arbitrary-length data to fixed-range integers (0 to size -1)
+> These function are all hash functions.
+> This is because they convert any input key (string, number) into a integer value within a 
+> fixed range.  
+> Evey key is guaranteed to be mapped to an index within the range 0 to size - 1, and this 
+> index is used to access the hash table.
 
 2. What are the advantages and disadvantages of each of the above hash functions? Evaluate in terms of uniformity, determinism, efficiency, collision resistance, sensitivity to input changes, and security[1](#Reference). You may need to do some reasearch to answer this question 😱
 > 
@@ -94,10 +97,11 @@ def sha256_hash(key: str, size: int) -> int:
 
 3. List the three most important attributes (arranged from most to least) in the context of a hash map? Justify your answer.
 
->   • Fast lookup(O(1))…directly map key to memory location  
->   • Flexibility… dictionaries allows to immutable data types to be used as keys.  
->   • Dynamic Size… dictionaries automatically manage storage capacity. When elements are   
-added and removed, dictionaries grow or shrink .
+> - Deterministic - Always return the same hash value for the same input.
+> - Uniform Distribution - If the input keys differ, the hash values should be evenly 
+    > distributed across the table's range.
+> - Efficiency - Calculations are fast, returning integer values within an appropriate time 
+    > for the length of the key.
 
 4. Which of the above hash functions would you choose to implement the requirements of the task? Why?
 
@@ -161,94 +165,27 @@ added and removed, dictionaries grow or shrink .
 
 6. Write pseudocode of how you would store Players in PlayerLists in a hash map.
 
-> Define class Player:  
->   attributes:  
->       uid: (unique identifier, string)  
->       name: (string)  
+> Procedure AddToHashMap(HashMap, Player)  
+> // Step 1: Compute index for the player  
+> Index <- Hash(Player.uid) MOD HashMap.SIZE
 > 
-> Define class PlayNode:  
->   attributes:   
->       player: (player of player object)  
->       next:   (PlayerNode or None)  
->       prev:   (PlayerNode or None)  
+> // Step 2: Access the player list at that index  
+> PlayerList <- HashMap[Index]
 > 
-> Define class PlayList:  
->   attributes:   
->       head: (PlayerNode or None)  
->       tail: (PlayerNode or None)  
+> // Step 3: Search for the player in the list  
+> FOR each Node in PlayList Do  
+>   If Node.Player.uid = Player.uid THEN  
+>   // Player already exists, update the name  
+>       Node.Player.name <- Player.name  
+>       Return  
+>   ENDIF  
+> ENDFOR  
 > 
->   method update_player(player: Player)  
->       new_node = PlayerNode(player)  
-        if head is None:  
-            head = new_player  
-            tail = new_player  
-        else:  
-            tail.next = new_player  
-            new_player.prev = tail  
-            tail = new_player  
+> // Step 4: Player not found, append to the list  
+> Append Player to PlayerList  
+> HashMap.Count <- HashMap.Count + 1
 > 
->   method find_key(key: player) -> PlayerNode or None:  
->       current_node = head  
-        while current_node EXISTS:  
-            if current_node.player.uid == key.uid:  
-                return current_node  
-            current_node = current_node.next  
-        return None  
-> 
-> Define PlayerHashMap:  
->   attributes:  
->       size: default 10  
->       hashmap: array of PlayerList objects, length = size  
->       count: number of players stored  
->   
->   method get_index(key):  
->       if key is a Player object:  
->           convert key.uid to integer  
->           return (integer uid % size)  
->       else:  
->           return hash(key) % size  
-> 
->   method set_item(key: Player, name: string )  
->       index = get_index(key)  
->       player_list = hashmap[index]  
->       existing_node = player_list.find_key(key)  
->       if existing_node EXISTS:  
->           update existing_node.player.name to name  
->           update existing_node.player.uid to uid  
->       else:  
->           create new player object with uid and name  
->           add new player to player_list  
->           increment count by 1  
-> 
->   method get_item(key: Player):  
->       index = get_index(key)  
->       player_list = hashmap[index]  
->       node = player_list.find_key(key)  
->       if node EXISTS:  
->           return node.player.name  
->       else:  
->           return None  
-> 
->   method delete_item(key: Player):  
->       index = get_index(key)  
->       player_list = hashmap[index]  
->       node = player_list.find_key(key)
->       if node EXISTS and node.player.uid == key.uid:    
->           remove node from player_list  
->           decrement count by 1  
->       else:  
->           print "player not found"  
-> 
->   method length():  
->       return count  
-> 
->   method display():  
->       for each index i and player_list in hasmap  
->           print index and contents of player_list  
-> 
->       
->       
-> 
+> END Procedure
 > 
 >   
 >       
@@ -294,3 +231,4 @@ added and removed, dictionaries grow or shrink .
 GeeksforGeeks. “Hash Map in Python.” GeeksforGeeks, 6 Dec. 2020, www.geeksforgeeks.org/python/hash-map-in-python/  
 “SHA in Python.” GeeksforGeeks, 14 Feb. 2018, www.geeksforgeeks.org/python/sha-in-python/.    
 W3Schools. “W3Schools.com.” W3schools.com, 2024, www.w3schools.com/dsa/dsa_data_hashmaps.php.
+https://www.geeksforgeeks.org/dsa/hash-functions-and-list-types-of-hash-functions/

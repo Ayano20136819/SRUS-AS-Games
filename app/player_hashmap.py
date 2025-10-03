@@ -70,7 +70,6 @@ class PlayerHashMap:
         player_info = self.hashmap[index]
         player_node = player_info.find_key(key)
         if player_node and player_node.player.uid == key.uid:
-            print(f"Delete player ID {key.uid}, Name {player_node.player.name}")
             del self.hashmap[index]
             #self.hashmap[index] = " "
             self.count -= 1
