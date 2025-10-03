@@ -9,6 +9,7 @@ list.insert_tail(1, "test1")
 list.insert_tail(2, "test2")
 list.insert_tail(3, "test3")
 
+
 print("List forward:")
 list.display(True)
 
