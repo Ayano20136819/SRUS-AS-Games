@@ -60,23 +60,25 @@ class Player:
 
 
     @classmethod
-    def sort_quickly(self, array):
-        if len(array) <= 1:
-            return array
+    def quick_sort(cls, data):
+        if len(data) <= 1:
+            return data
 
-        if len(array) % 2 == 1:
-            middle = int((len(array)-1)/2)
-        middle = int(len(array)/2)
+        if len(data) % 2 == 1:
+            middle = int((len(data)-1) // 2)
+        else:
+            middle = int(len(data) // 2)
+
         #print(f"Middle of the list {middle}")
-        pivot = array[middle]
+        pivot = data[middle]
         left = []
         right = []
-        for x in array[:]:
+        for x in data[:]:
             if x > pivot:
                 left.append(x)
             elif x < pivot:
                 right.append(x)
-        return Player.sort_quickly(left) + [pivot] + Player.sort_quickly(right)
+        return cls.quick_sort(left) + [pivot] + cls.quick_sort(right)
 
 
 # player = Player(1, "test")

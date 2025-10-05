@@ -54,12 +54,12 @@ class TestPlayer(TestCase):
         players = [Player('01', "Alice", 10), Player('02', "Bob", 5), Player('03', "Charlie", 15)]
         #print(Player.sort_quickly(players))
         expect_order = [Player(name="Charlie", uid="03", score=15), Player(name="Alice", uid='01', score=10), Player(name="Bob", uid='02', score=5)]
-        self.assertEqual(Player.sort_quickly(players), expect_order)
+        self.assertEqual(Player.quick_sort(players), expect_order)
 
     def test_sort_1000_players(self):
         players = [Player(uid=f'{i}', name="Dummy_name", score=random.randint(0, 1000)) for i in range(1000)]
         sorted_list = sorted(players, reverse=True)
-        sorted_list2 = Player.sort_quickly(players)
+        sorted_list2 = Player.quick_sort(players)
         print(players)
         print(sorted_list)
         max_player = max(players)
@@ -70,9 +70,9 @@ class TestPlayer(TestCase):
 
     def test_sort_sorted_players(self):
         players = [Player(uid=f'{i}', name="Dummy_name", score=random.randint(0, 1000)) for i in range(1000)]
-        sorted_list = Player.sort_quickly(players)
+        sorted_list = Player.quick_sort(players)
         print(sorted_list)
-        re_sort_list = Player.sort_quickly(sorted_list)
+        re_sort_list = Player.quick_sort(sorted_list)
         print(re_sort_list)
         self.assertEqual(sorted_list, re_sort_list)
 
