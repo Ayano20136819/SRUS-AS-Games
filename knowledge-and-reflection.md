@@ -76,8 +76,7 @@ def sha256_hash(key: str, size: int) -> int:
 > These function are all hash functions.
 > This is because they convert any input key (string, number) into a integer value within a 
 > fixed range.  
-> Evey key is guaranteed to be mapped to an index within the range 0 to size - 1, and this 
-> index is used to access the hash table.
+> Evey key is guaranteed to be mapped to an index within the between `0` and `size - 1`, which is used to access the hash table.
 
 2. What are the advantages and disadvantages of each of the above hash functions? Evaluate in terms of uniformity, determinism, efficiency, collision resistance, sensitivity to input changes, and security[1](#Reference). You may need to do some reasearch to answer this question 😱
 > 
@@ -160,30 +159,29 @@ def sha256_hash(key: str, size: int) -> int:
 > Uniformity: distributes hash values evenly across available indices.  
 > Determinism: same input always produces same index.  
 
-> 
 
 
 6. Write pseudocode of how you would store Players in PlayerLists in a hash map.
 
 > Procedure AddToHashMap(HashMap, Player)  
 > // Step 1: Compute index for the player  
-> Index <- Hash(Player.uid) MOD HashMap.SIZE
+> Index ← Hash(Player.uid) MOD HashMap.SIZE
 > 
 > // Step 2: Access the player list at that index  
-> PlayerList <- HashMap[Index]
+> PlayerList ← HashMap[Index]
 > 
 > // Step 3: Search for the player in the list  
 > FOR each Node in PlayList Do  
 >   If Node.Player.uid = Player.uid THEN  
 >   // Player already exists, update the name  
->       Node.Player.name <- Player.name  
+>       Node.Player.name ← Player.name  
 >       Return  
 >   ENDIF  
 > ENDFOR  
 > 
 > // Step 4: Player not found, append to the list  
 > Append Player to PlayerList  
-> HashMap.Count <- HashMap.Count + 1
+> HashMap.Count ← HashMap.Count + 1
 > 
 > END Procedure
 > 

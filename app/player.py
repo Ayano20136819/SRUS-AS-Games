@@ -38,6 +38,12 @@ class Player:
 
     @staticmethod
     def my_hash(key: str) -> int:
+        """
+            Return an integer hash for the key
+            If the key is int, use directly
+            Otherwise, use Python built-in hash
+        """
+
         try:
             return int(key)
         except ValueError:
