@@ -122,7 +122,7 @@ What is the **only** magic method that must be implemented in the player class f
 
 **Hint:** if you don't recall this from class, the error message you got when you ran the test will help you.
 -------
-> I used __lt__ (less than) method to compare scores.
+> I used `__lt__` (less than) method to compare scores.
 -------
 #### 4.3.2. Task: Implement the magic method in the Player class
 
@@ -236,7 +236,7 @@ What is the expected time and space complexity of the above algorithm? You can a
 > 
 > This Space complexity  
 > Worst case o(n^2) leads to a skewed recursion tree because of unbalanced partitioning 
-> when the pivot is the smallest or largest. (For example, a sorted list)
+> when the pivot is the smallest or largest. (For example, a sorted list)  
 > Best case O(log n) leads to a balanced recursion tree as a result of balanced partitioning. 
 > 
 > Time complexity depends on the situation.  
