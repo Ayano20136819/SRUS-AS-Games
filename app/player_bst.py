@@ -63,6 +63,9 @@ class PlayerBST:
 
 
     def inOrderTraversal(self, current_node, result= None):
+        """
+        Create a sorted list
+        """
         if result is None:
             result = []
 
@@ -74,20 +77,17 @@ class PlayerBST:
 
 
     def create_balanced_bst(self, sorted_list):
-        if sorted_list is None:
-            return
 
         if len(sorted_list) == 0:
             return
+        # Pick a middle element
         elif len(sorted_list) % 2 == 0:
             middle = len(sorted_list) // 2
         else:
             middle = (len(sorted_list) - 1) // 2
 
-        print(f"middle index: {middle}")
-
         root_player = sorted_list[middle]
-        print(f"root_player: {root_player}")
+        #print(f"current root_player: {root_player}")
         root_node = PlayerBNode(root_player)
 
         root_node.left = self.create_balanced_bst(sorted_list[:middle])
